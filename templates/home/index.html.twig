@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+<h2>Quelques blagues pour bien commencer la journée</h2>
+<div class="cards">
+{# {{ dump( jokes ) }} #}
+{% for j in jokes.jokes %}
+<div class="card">
+    <h3>{{j.setup}}</h3>
+    {{j.delivery}}
+</div>
+{% endfor %}
+</div>
+<h2>{{title}}</h2>
+<h3>{{joke.setup}}</h3>
+<div class="button btn-warning" id="langue-au-chat">
+    Je donne ma langue au chat
+</div>
+<div id="delivery">
+    {{joke.delivery}}
+</div>
+<a href="{{ path('app_home') }}" class="button btn-success" id="blague-suivante">
+    Blague suivante
+</a>
+{% endblock %}
